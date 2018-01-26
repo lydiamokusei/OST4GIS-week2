@@ -50,10 +50,24 @@
       ===================== */
 
       // Store sum you compute in this variable:
-      var yourSum = 0;
+
 
       // Refactor the work above into a few different functions that are reusable to the extent that you can
-      for (var i = 0; i < theArray.length, i++) { /* Do stuff here */ }
+      var func = function(){
+        var yourSum = 0;
+        for (var i = 0; i < theArray.length; i++) { /* Do stuff here */
+          var arrayValue = theArray[i];
+          if (typeof arrayValue === 'string') {         // String case
+            yourSum = yourSum+ arrayValue.length
+          } else if (typeof arrayValue === 'number') {  // Number case
+            yourSum = yourSum + arrayValue;
+          } else {                                      // Otherwise
+            console.log("Not sure how to proceed with value:", arrayValue)
+          }
+          return yourSum
+        }
+      }
+      func();
 
       /* =====================
 
